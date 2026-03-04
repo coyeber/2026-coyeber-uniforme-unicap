@@ -637,6 +637,121 @@
   .card-btns { display: flex; flex-direction: column; gap: 10px; width: 100%; margin-top: 8px; }
   .card-btns .btn { margin-top: 0; }
 
+
+  /* LISTA DE ATLETAS */
+  .lista-section {
+    position: relative; z-index: 10;
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 20px 60px;
+  }
+
+  .lista-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+  }
+
+  .lista-card {
+    background: linear-gradient(160deg, #2E0410, #1A0008);
+    border: 1px solid rgba(201,168,76,0.25);
+    border-radius: 2px;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .lista-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+  }
+  .lista-card.masc::before { background: linear-gradient(90deg, transparent, var(--gold-light), transparent); }
+  .lista-card.fem::before  { background: linear-gradient(90deg, transparent, #E8A0BF, transparent); }
+
+  .lista-header {
+    padding: 18px 22px 14px;
+    border-bottom: 1px solid rgba(201,168,76,0.12);
+    display: flex; align-items: center; gap: 12px;
+  }
+
+  .lista-header-icon { font-size: 26px; }
+
+  .lista-header-text h4 {
+    font-family: 'Cinzel', serif;
+    font-size: 16px; font-weight: 700;
+    background: linear-gradient(135deg, var(--gold-pale), var(--gold-light));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .lista-card.fem .lista-header-text h4 {
+    background: linear-gradient(135deg, #F5D0E8, #E8A0BF);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .lista-header-text p {
+    font-size: 10px; letter-spacing: 3px;
+    text-transform: uppercase;
+    color: rgba(201,168,76,0.5); margin-top: 2px;
+  }
+  .lista-card.fem .lista-header-text p { color: rgba(232,160,191,0.5); }
+
+  .lista-count {
+    margin-left: auto;
+    background: rgba(201,168,76,0.1);
+    border: 1px solid rgba(201,168,76,0.25);
+    padding: 4px 12px;
+    font-family: 'Cinzel', serif;
+    font-size: 18px; font-weight: 900;
+    color: var(--gold-light);
+    border-radius: 1px;
+  }
+  .lista-card.fem .lista-count {
+    background: rgba(232,160,191,0.1);
+    border-color: rgba(232,160,191,0.25);
+    color: #E8A0BF;
+  }
+
+  .lista-body { padding: 12px 16px 18px; }
+
+  .atleta-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 9px 10px;
+    border-radius: 1px;
+    transition: background 0.2s;
+  }
+  .atleta-item:hover { background: rgba(201,168,76,0.05); }
+  .lista-card.fem .atleta-item:hover { background: rgba(232,160,191,0.05); }
+
+  .atleta-num {
+    font-family: 'Cinzel', serif;
+    font-size: 20px; font-weight: 900;
+    color: var(--gold);
+    min-width: 44px;
+    text-align: center;
+    line-height: 1;
+  }
+  .lista-card.fem .atleta-num { color: #E8A0BF; }
+
+  .atleta-divider {
+    width: 1px; height: 28px;
+    background: rgba(201,168,76,0.2);
+    flex-shrink: 0;
+  }
+  .lista-card.fem .atleta-divider { background: rgba(232,160,191,0.2); }
+
+  .atleta-nome {
+    font-size: 14px; font-weight: 700;
+    color: rgba(250,243,224,0.82);
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+  }
+
 </style>
 </head>
 <body>
@@ -770,6 +885,77 @@
 </div>
 
 
+
+
+  <!-- LISTA DE ATLETAS -->
+  <div class="lista-section">
+    <div class="sec-label" style="margin-bottom:32px;">
+      <span>✦ Atletas Inscritos · 2026 ✦</span>
+    </div>
+    <div class="lista-grid">
+
+      <!-- MASCULINO -->
+      <div class="lista-card masc">
+        <div class="lista-header">
+          <div class="lista-header-icon">👨</div>
+          <div class="lista-header-text">
+            <h4>Masculino</h4>
+            <p>Time Masculino</p>
+          </div>
+          <div class="lista-count">20</div>
+        </div>
+        <div class="lista-body">
+          <div class="atleta-item"><div class="atleta-num">14</div><div class="atleta-divider"></div><div class="atleta-nome">Milo</div></div>
+          <div class="atleta-item"><div class="atleta-num">13</div><div class="atleta-divider"></div><div class="atleta-nome">Louloo</div></div>
+          <div class="atleta-item"><div class="atleta-num">32</div><div class="atleta-divider"></div><div class="atleta-nome">Baiano</div></div>
+          <div class="atleta-item"><div class="atleta-num">22</div><div class="atleta-divider"></div><div class="atleta-nome">Maël</div></div>
+          <div class="atleta-item"><div class="atleta-num">11</div><div class="atleta-divider"></div><div class="atleta-nome">Couvreur</div></div>
+          <div class="atleta-item"><div class="atleta-num">9</div><div class="atleta-divider"></div><div class="atleta-nome">Batman</div></div>
+          <div class="atleta-item"><div class="atleta-num">19</div><div class="atleta-divider"></div><div class="atleta-nome">Rhydrian</div></div>
+          <div class="atleta-item"><div class="atleta-num">16</div><div class="atleta-divider"></div><div class="atleta-nome">Julio</div></div>
+          <div class="atleta-item"><div class="atleta-num">10</div><div class="atleta-divider"></div><div class="atleta-nome">Carcará</div></div>
+          <div class="atleta-item"><div class="atleta-num">4</div><div class="atleta-divider"></div><div class="atleta-nome">Abreu</div></div>
+          <div class="atleta-item"><div class="atleta-num">54</div><div class="atleta-divider"></div><div class="atleta-nome">Mattheus</div></div>
+          <div class="atleta-item"><div class="atleta-num">27</div><div class="atleta-divider"></div><div class="atleta-nome">Val</div></div>
+          <div class="atleta-item"><div class="atleta-num">1</div><div class="atleta-divider"></div><div class="atleta-nome">Mael</div></div>
+          <div class="atleta-item"><div class="atleta-num">30</div><div class="atleta-divider"></div><div class="atleta-nome">Peixe</div></div>
+          <div class="atleta-item"><div class="atleta-num">35</div><div class="atleta-divider"></div><div class="atleta-nome">Artur</div></div>
+          <div class="atleta-item"><div class="atleta-num">7</div><div class="atleta-divider"></div><div class="atleta-nome">Biel</div></div>
+          <div class="atleta-item"><div class="atleta-num">8</div><div class="atleta-divider"></div><div class="atleta-nome">Nóbrega</div></div>
+          <div class="atleta-item"><div class="atleta-num">21</div><div class="atleta-divider"></div><div class="atleta-nome">Carlos</div></div>
+          <div class="atleta-item"><div class="atleta-num">66</div><div class="atleta-divider"></div><div class="atleta-nome">Shinobi</div></div>
+          <div class="atleta-item"><div class="atleta-num">34</div><div class="atleta-divider"></div><div class="atleta-nome">Breck</div></div>
+          <div class="atleta-item"><div class="atleta-num">87</div><div class="atleta-divider"></div><div class="atleta-nome">Cadete</div></div>
+        </div>
+      </div>
+
+      <!-- FEMININO -->
+      <div class="lista-card fem">
+        <div class="lista-header">
+          <div class="lista-header-icon">👩</div>
+          <div class="lista-header-text">
+            <h4>Feminino</h4>
+            <p>Time Feminino</p>
+          </div>
+          <div class="lista-count">10</div>
+        </div>
+        <div class="lista-body">
+          <div class="atleta-item"><div class="atleta-num">20</div><div class="atleta-divider"></div><div class="atleta-nome">Amanda</div></div>
+          <div class="atleta-item"><div class="atleta-num">6</div><div class="atleta-divider"></div><div class="atleta-nome">Maya</div></div>
+          <div class="atleta-item"><div class="atleta-num">1</div><div class="atleta-divider"></div><div class="atleta-nome">Beatriz</div></div>
+          <div class="atleta-item"><div class="atleta-num">5</div><div class="atleta-divider"></div><div class="atleta-nome">Gaab's</div></div>
+          <div class="atleta-item"><div class="atleta-num">17</div><div class="atleta-divider"></div><div class="atleta-nome">Anna</div></div>
+          <div class="atleta-item"><div class="atleta-num">15</div><div class="atleta-divider"></div><div class="atleta-nome">Rai</div></div>
+          <div class="atleta-item"><div class="atleta-num">12</div><div class="atleta-divider"></div><div class="atleta-nome">Cecilia</div></div>
+          <div class="atleta-item"><div class="atleta-num">14</div><div class="atleta-divider"></div><div class="atleta-nome">Liz</div></div>
+          <div class="atleta-item"><div class="atleta-num">15</div><div class="atleta-divider"></div><div class="atleta-nome">Nati</div></div>
+          <div class="atleta-item"><div class="atleta-num">25</div><div class="atleta-divider"></div><div class="atleta-nome">Nanas</div></div>
+          <div class="atleta-item"><div class="atleta-num">4</div><div class="atleta-divider"></div><div class="atleta-nome">Ana</div></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
 
 <footer>
   <div class="foot-orn">
